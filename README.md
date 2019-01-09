@@ -1,11 +1,11 @@
-## Project Proposal
+## CraftStats
 
-CraftStats will visualize the Employment rate for united states over the years.
+CraftStats will visualize the Employment rate for united states over the years. 
 
 ### Functionality & MVP
  In CraftStats, users will be able to:
-* see different charts
-* filter data between years
+- [ ] see different charts
+- [ ] filter data between years
 
 ### Architecture and Technologies
   This project will be implemented with the following technologies:
@@ -15,7 +15,7 @@ CraftStats will visualize the Employment rate for united states over the years.
 
   There will be two scripts involved in this project:
 
-* `d3.js`: this script will handle the logic for creating the necessary DOM elements.
+  * `d3.js`: this script will handle the logic for creating the necessary DOM elements.
 
 ### Implementation Timeline
 
@@ -38,3 +38,11 @@ CraftStats will visualize the Employment rate for united states over the years.
 ## Day5
   - work on README
   - Complete CSS
+### Bonus features
+
+There are many directions in which this project could evolve.
+
+- [ ] Live Data
+- [ ] upload file selct fields to visualize
+
+- 
