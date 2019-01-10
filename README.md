@@ -16,6 +16,10 @@ CraftStats will visualize the Employment rate for united states over the years.
   There will be two scripts involved in this project:
 
   * `d3.js`: this script will handle the logic for creating the necessary DOM elements.
+  
+ ### Wireframes
+ ![](https://i.imgur.com/TaGgxsM.png)
+ ![](https://i.imgur.com/8vulUYJ.png)
 
 ### Implementation Timeline
 
