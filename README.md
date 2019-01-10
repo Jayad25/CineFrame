@@ -48,5 +48,3 @@ There are many directions in which this project could evolve.
 
 - [ ] Live Data
 - [ ] upload file selct fields to visualize
-
-- 
