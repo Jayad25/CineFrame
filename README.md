@@ -71,7 +71,7 @@ CraftStats will visualize the Employment rate for united states over the years.
  - Process dataset
 
 ### Day3
- - continue lear D3
+ - continue learn D3
  - implement all charts
 
 #### Day4
