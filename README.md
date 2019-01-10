@@ -22,7 +22,7 @@ CraftStats will visualize the Employment rate for united states over the years.
  ![](https://i.imgur.com/8vulUYJ.png)
  
  ### Data
- `[
+[
 {
 "employed_percent": 50.4,
 "employed_total": 50350,
@@ -58,7 +58,7 @@ CraftStats will visualize the Employment rate for united states over the years.
 "unemployed": 1070,
 "unemployed_percent": 1.9,
 "year": 1943
-}]`
+}]
 
 ### Implementation Timeline
 
