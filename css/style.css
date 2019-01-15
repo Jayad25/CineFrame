@@ -40,7 +40,14 @@ path {
 p{
     font-size: 1.5em;
     text-align: center;
-    opacity: 0.7;
+    opacity: 0.9;
+    /* padding-left: 61px; */
+    /* padding: 20px; */
+    width: 600px;
+    align-items: center;
+    margin-left: 384px;
+    line-height: 35.5px;
+    letter-spacing: 1px;
 }
 .dropdown_label{
     margin-top:12px;
