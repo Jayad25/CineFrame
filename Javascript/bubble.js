@@ -88,7 +88,7 @@ window.bubblechart = (function (category,selectyear) {
         function updatedetails(d) {
             var info = "";
             if (d) {
-                info = "Title:"+d.original_title+"\n"+ "vote_average:"+d.vote_average
+                info = "Title: "+d.original_title+ "\rvote_average: "+d.vote_average
                 
             }
             document.getElementById("details").innerHTML=info;
