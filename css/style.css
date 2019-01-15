@@ -79,3 +79,24 @@ font-size: 48px;
 .fa-linkedin,.fa-github{
     color: #a79898
 }
+
+h2{
+    font-size: 2.5em;
+    opacity: 0.7;
+}
+h5{
+    font-size:1.0em
+}
+#split,#Combine{
+    width:80px;
+    height: 25px;
+    padding: 2px;
+    margin-right: 29px;
+    background: white;
+    border-radius: 12px;
+    font-size: 12px;
+}
+.bubble-div{
+    display: flex;
+    flex-direction: row;
+}

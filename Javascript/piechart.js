@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pie = (selectyear) => {
                 // console.log(selectyear)
                 let width = 800,
-                        height = 700,
+                        height = 500,
                         radius = height / 2 - 10;
 
                 let color = d3.scaleOrdinal(d3.schemeCategory10);
