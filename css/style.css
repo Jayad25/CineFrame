@@ -1,0 +1,80 @@
+body { font: 12px Arial;}
+
+path { 
+    /* stroke: steelblue; */
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+.inside
+{
+    font-size:25px;
+    font-weight:bold;
+    fill:white;
+}
+.label
+{
+    font-size:25px;
+    font-weight:bold;
+}
+#charts{
+    height: 700;
+    width: 1400;
+    text-align: center;
+    display: flex;
+    flex-direction: column
+    
+}
+#bubblechart{
+    /* border: 1px solid black; */
+}
+
+
+p{
+    font-size: 1.5em;
+    text-align: center;
+}
+.dropdown_label{
+    margin-top:12px;
+    
+    font-size: 1.5em;
+    border:1px solid black;
+    height:50px;
+    width:200px;
+    /* text-align: center; */
+    align-items: center;
+    margin-left: 500px;
+    font-family: 'Fira Sans', sans-serif;
+}
+#year{
+    text-align: center;
+    font-size: 1em;
+}
+.navlink{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around
+
+}
+h1{
+    text-align: center;
+    font-size: 3.8em;
+    color: brown;
+    font-style: oblique;
+    margin-left:400px;
+}
+.github_linkedin{
+font-size: 48px;
+    color:#a79898;
+    margin-top: 30px;
+}
+.fa-linkedin,.fa-github{
+    color: #a79898
+}

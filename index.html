@@ -3,27 +3,47 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CraftStats</title>
+    <title>make circles</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-    <link rel="stylesheet" href="line_chart.css">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     
 </head>
 <body>
-    <button id="split">Split</button>
-    <button id="Combine">Combine</button>
+<div class="navlink">
+    <h1> Movie world</h1>
+    <div class="github_linkedin">
+    <a href="www.linkedin.com/in/jayalakshmi-dammalapati-2509"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/Jayad25"><i class="fab fa-github"></i></a>
+    </div>
+</div>
+        <p> Are yoy confused which movie to watch. let select a year and category
+            Then Choose movie to based on popularity and rating of the movie
+        </p>
+        
+    <div class="dropdown_label">Select a year
     <select id="year">
-        <option value="2012">2012</option>
-        <option value="2013" selected="selected">2013</option>
+        <option value="2012" selected="selected">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
         <option value="2015">2015</option>
+        <option value="2016">2016</option>
     </select>
-
+</div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <!-- <script src="line_chart.js"></script> -->
     <!-- <script src="line_chart.js"></script> -->
-    <script src="piechart.js"></script>
-    <!-- <script src="bubble.js"></script> -->
-    <div id="piearea"></div>
+    <script src="./Javascript/piechart.js"></script>
+    <script src="./Javascript/bubble.js"></script>
+    <div id="charts">
+        <div id="piearea"></div>
+        <div id="bubblechart">
+            <button id="split">Split</button>
+            <button id="Combine">Combine</button>
+        </div>
+    </div>
 </body>
 </html>
