@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         let segments = d3
                                 .arc()
-                                .innerRadius(10)
+                                .innerRadius(30)
                                 .outerRadius(200)
                                 .padAngle(0.2)
                                 .padRadius(50)
@@ -64,10 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                 window.bubblechart(d.data.category, selectyear);
                                 }).on("mouseover", function () {
-                                        d3.select(this).transition().duration(300).style("fill", "white")
+                                        d3.select(this).transition().duration(300).style("opacity", 0.5)
                                 })
                                 .on("mouseout", function () {
-                                        d3.select(this).transition().duration(300).style("fill", function (d) { return color(d.data.category); });
+                                        d3.select(this).transition().duration(300).style("opacity", 1);
                                 })
                                 .on("mousedown", function (d) {
                                         var total = d3.sum(details.map(function (d) { return d.number; }));

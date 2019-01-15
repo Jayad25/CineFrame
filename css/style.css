@@ -104,6 +104,8 @@ h5{
     font-size: 12px;
 }
 .bubble-div{
+    width: 1000px;
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
 }
