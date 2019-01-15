@@ -124,10 +124,10 @@ window.bubblechart = (function (category,selectyear) {
             });
         d3.select("#split").on("click", function (d) {
             simulation.force("x", forceX)
-                .alphaTarget(0.5)
+                // .alphaTarget(0.5)
                 .restart()
             simulation.force("y", forceY)
-                .alphaTarget(0.5)
+                // .alphaTarget(0.5)
                 .restart()
         });
         simulation.nodes(datapoints).on('tick', ticked)
@@ -156,6 +156,14 @@ window.bubblechart = (function (category,selectyear) {
             .scale(color);
 
         svgContainer.select(".legendOrdinal").call(legendOrdinal);
+        svgContainer
+          .append("text")
+          .attr("x", width / 2)
+          .attr("y", 20)
+          .attr("text-anchor", "middle")
+          .style("font-size", "16px")
+          .style("text-decoration", "underline")
+          .text("All " + category + " movies in "+ selectyear);
     
     }
 
