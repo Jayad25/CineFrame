@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         var total = d3.sum(details.map(function (d) { return d.number; }));
                                         var percent = Math.round(10000 * d.data.number / total) / 100;
                                         var position = d3.mouse(svg.node());
-                                        // console.log(position);
+                                        console.log(position);
                                         d3.select("body").append("div").classed("tooltip", true)
                                                 .style("left", position[0] + 10 + "px")
                                                 .style("top", position[1] + "px")

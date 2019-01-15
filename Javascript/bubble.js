@@ -124,10 +124,10 @@ window.bubblechart = (function (category,selectyear) {
             });
         d3.select("#split").on("click", function (d) {
             simulation.force("x", forceX)
-                // .alphaTarget(0.5)
+                .alphaTarget(0.5)
                 .restart()
             simulation.force("y", forceY)
-                // .alphaTarget(0.5)
+                .alphaTarget(0.5)
                 .restart()
         });
         simulation.nodes(datapoints).on('tick', ticked)
