@@ -16,11 +16,12 @@ CineFrame will visualize the Movies between 2012 and 2016 based  on geners. User
   
   
    ### Code Snippets
-  ![](https://i.imgur.com/AzT0T6Q.png)
+   <img src="https://i.imgur.com/AzT0T6Q.png" width="400">
+ 
   
 ### Bonus features
 
 In Future i would like to add below fetatures
 
-- [ ] Live Data
-- [ ] upload file select fields to visualize
+ * Live Data
+ * upload file select fields to visualize
