@@ -9,25 +9,11 @@ CineFrame will visualize the Movies between 2012 and 2016 based  on geners. User
   * D3 library to implement visual representation
 
 ### ScreenShots
+ ![](https://i.imgur.com/nIXCzeP.png)
   ![](https://i.imgur.com/ajvrSRK.png)
-  ![](https://i.imgur.com/nIXCzeP.png)
- ### Code Snippets
-  `d3.select("#Combine").on("click",function(d){
-                simulation.force("x",d3.forceX(width/2).strength(0.05))
-                .alphaTarget(0.5)
-                .restart()
-                simulation.force("y", d3.forceY(height / 2).strength(0.05))
-                .alphaTarget(0.5)
-                .restart()
-            });
-        d3.select("#split").on("click", function (d) {
-            simulation.force("x", forceX)
-                .alphaTarget(0.5)
-                .restart()
-            simulation.force("y", forceY)
-                .alphaTarget(0.5)
-                .restart()
-        });`
+  
+   ### Code Snippets
+  ![](https://i.imgur.com/AzT0T6Q.png)
   
 ### Bonus features
 
