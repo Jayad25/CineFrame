@@ -26,6 +26,7 @@ window.bubblechart = (function (category,selectyear) {
       .forceX(function(d) {
             let vote=Math.floor(d.vote_average)
             if (vote === 5) return 150;
+          if (vote === 6) return 500;
             else if (vote === 7) return 600;
             else return 500;
           
@@ -35,9 +36,10 @@ window.bubblechart = (function (category,selectyear) {
 
     let forceY = d3
         .forceY(function (d) {
+            let vote = Math.floor(d.vote_average)
             if (d.genres.length > 0) {
-            if (d.genres[0].name === "Fantasy") return 250;
-            else if (d.genres[0].name === "Animation") return 900;
+                if (vote === 8) return 250;
+                else if (vote === 4)  return 900;
             else return 700;
             }
             // return height/8
@@ -74,12 +76,23 @@ window.bubblechart = (function (category,selectyear) {
     }
         datapoint(olddatapoints)
        
-        var circles = svgContainer.selectAll("circle")
-            .data(datapoints)
-            .enter()
-            .append("circle").on("click", function (d) {
-                alert(d.original_title);
-            });
+        var circles = svgContainer
+          .selectAll("circle")
+          .data(datapoints)
+          .enter()
+          .append("circle")
+          .on("mouseover", function(d) {
+            updatedetails(d)
+          });
+        function updatedetails(d) {
+            var info = "";
+            if (d) {
+                info = "Title:"+d.original_title+"\n vote_average:"+d.vote_average
+                
+            }
+            document.getElementById("details").innerHTML=info;
+        }
+    
         var cate = 0
         circles.attr("r", function (d) {
             let date = d.release_date.slice(0, 4);
@@ -103,10 +116,10 @@ window.bubblechart = (function (category,selectyear) {
         })
         d3.select("#Combine").on("click",function(d){
                 simulation.force("x",d3.forceX(width/2).strength(0.05))
-                // .alphaTarget(0.5)
+                .alphaTarget(0.5)
                 .restart()
                 simulation.force("y", d3.forceY(height / 2).strength(0.05))
-                // .alphaTarget(0.5)
+                .alphaTarget(0.5)
                 .restart()
         
             }
@@ -136,66 +149,63 @@ window.bubblechart = (function (category,selectyear) {
                 else return 0
             })
         }
-        // var legend = svgContainer.selectAll(".legend")
-        //     .data(datapoints).enter()
-        //     .append("g")
-        //     .attr("class", "legend")
-        //     .attr("transform", "translate(" + 780 + "," + 120 + ")");
-        // legend.append("text")
-        //     .attr("x", 25)
-        //     .classed("bubblelabel", true)
-        //     .attr("dy", "1em")
-        //     .attr("y", function (d, i) { return 20 * i; })
-        //     .text(function (d) {
-        //         value = document.getElementsByClassName("bubblelabel")
-        //         let isthere = false
-        //         let newValue = Math.floor(d.vote_average);
-        //         for (let i = 0; i < value.length; i++) {
+        var legend = svgContainer.selectAll(".legend")
+            .data(datapoints).enter()
+            .append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(" + 780 + "," + 120 + ")");
+        legend.append("text")
+            .attr("x", 25)
+            .classed("bubblelabel", true)
+            .attr("dy", "1em")
+            .attr("y", function (d, i) { return 20 * i; })
+            .text(function (d) {
+                value = document.getElementsByClassName("bubblelabel")
+                let isthere = false
+                let newValue = Math.floor(d.vote_average);
+                for (let i = 0; i < value.length; i++) {
 
-        //             var one = parseInt(value[i].innerHTML)
-        //             var two = newValue
-        //             if (one === two) {
-        //                 // console.log("isthere");
-        //                 isthere = true
-        //             }
-        //         }
+                    var one = parseInt(value[i].innerHTML)
+                    var two = newValue
+                    if (one === two) {
+                        // console.log("isthere");
+                        isthere = true
+                    }
+                }
 
-        //         if (!isthere) {
+                if (!isthere) {
 
-        //             // console.log('one')
-        //             return Math.floor(d.vote_average);
-        //         }
-        //     })
-        //     .attr("font-size", "12px");
+                    // console.log('one')
+                    return Math.floor(d.vote_average);
+                }
+            })
+            .attr("font-size", "12px");
 
 
-        // legend
-        //   .append("rect")
-        //   .attr("x", 0)
-        //   .attr("y", function(d, i) {
-        //     return 20 * i;
-        //   })
-        //   .attr("width", 15)
-        //   .attr("height", 15)
-        //   .classed("bubblerect", true)
-        //   .style("fill", function(d) {
+        legend
+          .append("rect")
+          .attr("x", 0)
+          .attr("y", function(d, i) {
+            return 20 * i;
+          })
+          .attr("width", 15)
+          .attr("height", 15)
+          .classed("bubblerect", true)
+          .style("fill", function(d) {
              
-        //           return color(Math.floor(d.vote_average));
-        //       }
-        //   );
+                  return color(Math.floor(d.vote_average));
+              }
+          );
 
 
         
 
-        // legend.append("text")
-        //     .attr("x", 31)
-        //     .attr("dy", "-.2em")
-        //     .attr("y", -10)
-        //     .text("Voting average")
-        //     .attr("font-size", "17px"); 
-
-    
-
+        legend.append("text")
+            .attr("x", 31)
+            .attr("dy", "-.2em")
+            .attr("y", -10)
+            .text("Voting average")
+            .attr("font-size", "17px"); 
         
     
     }

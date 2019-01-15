@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                 });
 
                         let content = d3.select("g").selectAll("text").data(data)
-                        // content.enter().append("text").each(function(d){
-                        //         let center = segments.centroid(d)
-                        //         d3.select(this).attr("x",center[0]).attr("y",center[1]).text(d.data.category);
-                        // })
+                        content.enter().append("text").each(function(d){
+                                let center = segments.centroid(d)
+                                d3.select(this).attr("x",center[0]).attr("y",center[1]).text(d.data.number);
+                        })
                         let totalCount = 0;
                         data.forEach((dat) => {
                                 totalCount += dat.number;
