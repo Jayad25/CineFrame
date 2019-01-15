@@ -1,8 +1,9 @@
+document.addEventListener('DOMContentLoaded', () => {
 window.bubblechart = (function (category,selectyear) {
 
     document.getElementById("bubblechart").innerHTML = "";
     
-    let width = 1000,
+    let width = 1200,
         height = 500;
     padding = 1.5, // separation between same-color nodes
         clusterPadding = 6;
@@ -27,10 +28,10 @@ window.bubblechart = (function (category,selectyear) {
             if (vote === 4) return width/3;
           if (vote === 6) return  1.5 * width/3;
             else if (vote === 7) return 2.5 * width/3;
+            else if (vote === 5) return 2.5 * width/3;
             else if (vote === 8) return 2.5 * width/3;
             else return width-100;
           
-        // return width/8
         })
       .strength(0.05);
 
@@ -147,7 +148,7 @@ window.bubblechart = (function (category,selectyear) {
         svgContainer
           .append("g")
           .attr("class", "legendOrdinal")
-          .attr("transform", "translate(600,40)");
+          .attr("transform", "translate(1100,40)");
 
         var legendOrdinal = d3.legendColor()
             .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
@@ -155,65 +156,11 @@ window.bubblechart = (function (category,selectyear) {
             .scale(color);
 
         svgContainer.select(".legendOrdinal").call(legendOrdinal);
-        // var legend = svgContainer.selectAll(".legend")
-        //     .data(datapoints).enter()
-        //     .append("g")
-        //     .attr("class", "legend")
-        //     .attr("transform", "translate(" + 780 + "," + 120 + ")");
-
-        // legend.append("text")
-        //     .attr("x", 25)
-        //     .classed("bubblelabel", true)
-        //     .attr("dy", "1em")
-        //     .attr("y", function (d, i) { return 20 * i; })
-        //     .text(function (d) {
-        //         value = document.getElementsByClassName("bubblelabel")
-        //         let isthere = false
-        //         let newValue = Math.floor(d.vote_average);
-        //         for (let i = 0; i < value.length; i++) {
-
-        //             var one = parseInt(value[i].innerHTML)
-        //             var two = newValue
-        //             if (one === two) {
-        //                 isthere = true
-        //             }
-        //         }
-
-        //         if (!isthere) {
-        //             return Math.floor(d.vote_average);
-        //         }
-        //     })
-        //     .attr("font-size", "12px");
-
-
-        // legend
-        //   .append("rect")
-        //   .attr("x", 0)
-        //   .attr("y", function(d, i) {
-        //     return 20 * i;
-        //   })
-        //   .attr("width", 15)
-        //   .attr("height", 15)
-        //   .classed("bubblerect", true)
-        //   .style("fill", function(d) {
-             
-        //           return color(Math.floor(d.vote_average));
-        //       }
-        //   );
-
-
-        
-
-        // legend.append("text")
-        //     .attr("x", 31)
-        //     .attr("dy", "-.2em")
-        //     .attr("y", -10)
-        //     .text("Voting average")
-        //     .attr("font-size", "17px"); 
-        
     
     }
 
 
+})
+bubblechart("Action",2012)
 })
 
