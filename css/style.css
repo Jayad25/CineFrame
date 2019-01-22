@@ -29,7 +29,8 @@ path {
     width: 1400;
     text-align: center;
     display: flex;
-    flex-direction: column
+    flex-direction: row;
+    justify-content: flex-start;
     
 }
 #bubblechart{
@@ -107,5 +108,5 @@ h5{
     width: 1000px;
 
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }

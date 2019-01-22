@@ -3,7 +3,7 @@ window.bubblechart = (function (category,selectyear) {
 
     document.getElementById("bubblechart").innerHTML = "";
     
-    let width = 1200,
+    let width = 800,
         height = 500;
     padding = 1.5, // separation between same-color nodes
         clusterPadding = 6;

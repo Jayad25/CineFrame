@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
         const pie = (selectyear) => {
                 // console.log(selectyear)
-                let width = 800,
+                let width = 500,
                         height = 500,
                         radius = height / 2 - 10;
 
