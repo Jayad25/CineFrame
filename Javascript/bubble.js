@@ -12,11 +12,16 @@ window.bubblechart = (function (category,selectyear) {
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-    var div = d3
-      .select("#bubblechart")
-      .append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
+    var tooltip = d3.select("#bubblechart")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "black")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .style("color", "white");
+
+        
     var keyword = d3.set("", function (movie) {
         if (movie.genres.length > 0) {
             return Math.floor(movie.vote_average);
@@ -80,28 +85,28 @@ window.bubblechart = (function (category,selectyear) {
         })
     }
         datapoint(olddatapoints)
-       
+        var showTooltip = function (d) {
+            tooltip
+                .transition()
+                .duration(200)
+            tooltip
+              .style("opacity", 1)
+                .html("Title: " + d.original_title + "\n Popularity: " + d.popularity)
+              .style("left", d3.mouse(this)[0] + 30 + "px")
+              .style("top", d3.mouse(this)[1] + 30 + "px");
+        }
+        var moveTooltip = function (d) {
+            tooltip
+                .style("left", (d3.mouse(this)[0] + 30) + "px")
+                .style("top", (d3.mouse(this)[1] + 30) + "px")
+        }
         var circles = svgContainer
           .selectAll("circle")
           .data(datapoints)
           .enter()
           .append("circle")
-            .on("mouseover", function (d) {
-                div.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-
-                var duration = 00;
-                datapoints.forEach(function (d, i) {
-                    div.transition().duration(duration).delay(i * duration)
-                        .attr("r", d.original_title);
-                });
-
-
-                div.html(d.original_title + ": <br>" + d.popularity)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            });
+            .on("mouseover",showTooltip )
+             .on("mousemove", moveTooltip);
         function updatedetails(d) {
             var info = "";
             if (d) {
@@ -165,7 +170,7 @@ window.bubblechart = (function (category,selectyear) {
         svgContainer
           .append("g")
           .attr("class", "legendOrdinal")
-          .attr("transform", "translate(1100,40)");
+          .attr("transform", "translate(700,40)");
 
         var legendOrdinal = d3.legendColor()
             .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
