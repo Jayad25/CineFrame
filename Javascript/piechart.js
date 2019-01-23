@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
         const pie = (selectyear) => {
-                // console.log(selectyear)
-                let width = 500,
+                let width = 600,
                         height = 500,
                         radius = height / 2 - 10;
 
@@ -12,14 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         .attr("width", width)
                         .attr("height", height);
                 let moviedetails = [{}]
-                //fetch data
                 d3.json("data/movie.json", function (data) {
-                        // console.log(data)
                         data.forEach(d => {
-                                let inSerted = false;
-                                
-                                if (d.release_date.slice(0, 4) == selectyear && d.genres.length > 0) {
-                                        
+                                let inSerted = false;   
+                                if (d.release_date.slice(0, 4) == selectyear && d.genres.length > 0) {    
                                         moviedetails.forEach(movie => {
                                                 if (movie.category === d.genres[0].name) {
                                                         movie.number += 1
@@ -38,13 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                         newmoviedetails.push(mov)
                                 }
                         })
-                        // console.log(newmoviedetails)
                         update(newmoviedetails)
                 });
                 const update = (details) => {
                         let data = d3.pie().sort(null).value(function (d) { return d.number; })(details);
-                        // console.log(data)
-                        
                         let segments = d3
                                 .arc()
                                 .innerRadius(30)
@@ -52,16 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                 .padAngle(0.2)
                                 .padRadius(50)
                                 .cornerRadius(30)
-
                         let sections = svg.append("g").attr("transform", "translate(250,250)")
-                                .selectAll("path").data(data)
-                       
+                                .selectAll("path").data(data)      
                         sections.enter().append("path").attr("d", segments).style("fill", function (d) {
-
-                                return color(d.data.category);
+                          return color(d.data.category);
                         }).on("click", function (d) {
-                                // console.log(selectyear)
-
                                 window.bubblechart(d.data.category, selectyear);
                                 }).on("mouseover", function () {
                                         d3.select(this).transition().duration(300).style("opacity", 0.5)
@@ -92,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         data.forEach((dat) => {
                                 totalCount += dat.number;
                         });
-                        let legends = svg.append("g").attr("transform", "translate(500, 100)")
+                        let legends = svg.append("g").attr("transform", "translate(475, 100)")
                                 .selectAll(".legends").data(data);
                         let legend = legends.enter().append("g").classed("legends", true)
                                 .attr("transform", function (d, i) { return "translate(0," + (i + 1) * 30 + ")"; });

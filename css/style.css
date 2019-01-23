@@ -21,7 +21,7 @@ path {
 }
 .label
 {
-    font-size:25px;
+    font-size:21px;
     font-weight:bold;
 }
 #charts{
@@ -34,7 +34,8 @@ path {
     
 }
 #bubblechart{
-    /* border: 1px solid black; */
+  margin-left: -300px;
+  margin-bottom: 45px;
 }
 
 
