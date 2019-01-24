@@ -12,12 +12,17 @@ window.bubblechart = (function (category,selectyear) {
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-    var tooltip = d3.select("circle")
+    var tooltip = d3.select("#bubblechart")
         .append("div")
-        .style("opacity", 0)
-        .attr("class", "tooltip")
-        .style("background-color", "black")
-        .style("color", "white");
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .style("color", "white")
+        .style("padding", "8px")
+        .style("background-color", "rgba(0, 0, 0, 0.75)")
+        .style("border-radius", "6px")
+        .style("font", "12px sans-serif")
+        .text("tooltip");
 
     var keyword = d3.set("", function (movie) {
         if (movie.genres.length > 0) {
@@ -36,22 +41,24 @@ window.bubblechart = (function (category,selectyear) {
             else if (vote === 7) return 2.5 * width/3;
             else if (vote === 5) return 2.5 * width/3;
             else if (vote === 8) return 2.5 * width/3;
-            else return width-120;
+            else 
+            return width-400;
           
         })
-      .strength(0.05);
+      .strength(0.09);
 
     let forceY = d3
         .forceY(function (d) {
             let vote = Math.floor(d.vote_average)
             if (d.genres.length > 0) {
                 if (vote === 5) return height/3;
-                if (vote === 4) return height / 2;
+                if (vote === 4) return 1.5* height / 2;
                 else if (vote === 8) return 2.5 * width / 3;
-            else return height-100;
+            else 
+            return height-200;
             }
         })
-        .strength(0.05);
+        .strength(0.09);
 
     let forceCollide = d3.forceCollide(function (d) {
         return radiusScale(d.popularity * 2)+1;
@@ -82,37 +89,21 @@ window.bubblechart = (function (category,selectyear) {
         })
     }
         datapoint(olddatapoints)
-        var showTooltip = function (d) {
-            console.log(d3.event.pageX)
-            tooltip
-                .transition()
-                .duration(200)
-            tooltip
-              .style("opacity", 1)
-                .html("Title: " + d.original_title + "\n Popularity: " + d.popularity)
-                .style("left", (d3.event.pageX - 34) + "px")
-                .style("top", (d3.event.pageY - 12) + "px");
-        }
-        var moveTooltip = function (d) {
-            tooltip
-              .style("left", d3.event.pageX - 34 + "px")
-              .style("top", d3.event.pageY - 12 + "px");
-        }
         var circles = svgContainer
           .selectAll("circle")
           .data(datapoints)
           .enter()
           .append("circle")
-            .on("mouseover",showTooltip )
-             .on("mousemove", moveTooltip);
-        function updatedetails(d) {
-            var info = "";
-            if (d) {
-                info = "Title: "+d.original_title+ "\rvote_average: "+d.vote_average
-                
-            }
-            document.getElementById("details").innerHTML=info;
-        }
+        .on("mouseover", function (d) {
+            tooltip.text(d.original_title + "\n " + d.popularity);
+            tooltip.style("visibility", "visible");
+        })
+            .on("mousemove", function () {
+                return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
+            })
+            .on("mouseout", function () { return tooltip.style("visibility", "hidden"); });
+
+        
     
        
         circles.attr("r", function (d) {
