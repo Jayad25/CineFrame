@@ -97,13 +97,13 @@ h5{
     font-size:1.0em
 }
 #split,#Combine{
-    width:80px;
+    width:97px;
     height: 25px;
     padding: 2px;
     margin-right: 29px;
     background: white;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 17px;
 }
 .bubble-div{
     width: 1000px;

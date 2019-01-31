@@ -169,10 +169,12 @@ window.bubblechart = (function (category,selectyear) {
         svgContainer.select(".legendOrdinal").call(legendOrdinal);
         svgContainer
           .append("text")
-          .attr("x", width / 2)
-          .attr("y", 20)
+          .attr("x", 500)
+          .attr("y", 40)
           .attr("text-anchor", "middle")
-          .style("font-size", "16px")
+          .style("font-size", "20px")
+          .style("color", "brown")
+          .style("width","78px")
           .style("text-decoration", "underline")
           .text("All " + category + " movies in "+ selectyear);
     
