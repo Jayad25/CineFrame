@@ -165,8 +165,14 @@ window.bubblechart = (function (category,selectyear) {
             .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
             .shapePadding(10)
             .scale(color);
+          
 
-        svgContainer.select(".legendOrdinal").call(legendOrdinal);
+        svgContainer.select(".legendOrdinal").call(legendOrdinal).append("text")
+            .attr("x", -27)
+            .attr("dy", "-.2em")
+            .attr("y", -10)
+            .text("Popularity")
+            .attr("font-size", "17px"); 
         svgContainer
           .append("text")
           .attr("x", 500)
